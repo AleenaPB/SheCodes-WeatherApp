@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weatherman</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <img src="images/weatherapplogo.png" alt="weatherLogo" class="logo" />
+
+      <div class="search-zone">
+        <form id="search-form">
+          <input
+            type="text"
+            autocomplete="off"
+            autofocus="on"
+            placeholder="Type your city here"
+            id="search-text-input"
+          />
+          <button type="submit" class="btn btn-primary search">Search</button>
+          <button
+            type="submit"
+            class="btn btn-primary current-location"
+            id="current-location"
+          >
+            📍
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary degree-celsius"
+            id="celsius"
+          >
+            Cº
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary degree-fahrenheit"
+            id="fahrenheit"
+          >
+            Fº
+          </button>
+        </form>
+      </div>
+      <hr />
+      <div class="row city-search">
+        <div class="col-12">
+          <h1>Brisbane</h1>
+          <ul>
+            <li>
+              <p id="temp">28°</p>
+            </li>
+            <img id="search-city-image" src="images/partlycloudy.gif" />
+            <li id="date">April 21, 2022 18:00</li>
+            <li>
+              <ul class="extra-info">
+                <li>
+                  <span class="details">Weather Description:</span>
+                  <span id="weather-descriptor">Sunny</span>
+                </li>
+                <li>
+                  <span class="details">High/Low:</span>
+                  <span id="high">28</span>º/<span id="low">16</span>º
+                </li>
+                <li>
+                  <span class="details">Feels like:</span>
+                  <span id="feels-like">22</span>º
+                </li>
+                <li>
+                  <span class="details">Humidity:</span>
+                  <span id="humidity">48</span>%
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="row images">
+          <div class="col-4">
+            <img
+              src="images/lowtemp.png"
+              alt="Girl in Sweater"
+              class="picture-indicator lowtemp"
+              id="lowtemp"
+            />
+          </div>
+          <div class="col-4">
+            <img
+              src="images/midtemp.png"
+              alt="Girl in Shirt"
+              class="picture-indicator midtemp"
+              id="midtemp"
+            />
+          </div>
+          <div class="col-4">
+            <img
+              src="images/hightemp.png"
+              alt="Girl in Sunglasses"
+              class="picture-indicator hightemp"
+              id="hightemp"
+            />
+          </div>
+        </div>
+
+        <div class="row forecast-day">
+          <div class="col-2 card">
+            <img src="images/sun.gif" class="card-img-top" alt="weather" />
+            <div class="card-body">
+              <p class="card-text">
+                FRI <br />
+                14º/24º
+              </p>
+            </div>
+          </div>
+          <div class="col-2 card">
+            <img src="images/windy.gif" class="card-img-top" alt="weather" />
+            <div class="card-body">
+              <p class="card-text">
+                SAT <br />
+                14º/28º
+              </p>
+            </div>
+          </div>
+          <div class="col-2 card">
+            <img src="images/rain.gif" class="card-img-top" alt="weather" />
+            <div class="card-body">
+              <p class="card-text">
+                SUN <br />
+                13º/24º
+              </p>
+            </div>
+          </div>
+          <div class="col-2 card">
+            <img
+              src="images/sunshower.gif"
+              class="card-img-top"
+              alt="weather"
+            />
+            <div class="card-body">
+              <p class="card-text">
+                MON <br />
+                16º/24º
+              </p>
+            </div>
+          </div>
+          <div class="col-2 card">
+            <img
+              src="images/lightning.gif"
+              class="card-img-top"
+              alt="weather"
+            />
+            <div class="card-body">
+              <p class="card-text">
+                TUE <br />
+                18º/28º
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+.container {
+  max-width: 850px;
+  background: #f6f3ec;
+  border: 5px solid #ece6db;
+  border-radius: 20px;
+  padding: 10px 30px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.logo {
+  border-radius: 30px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  max-width: 500px;
+}
+hr {
+  margin-top: 0;
+}
+.search-zone {
+  text-align: center;
+  padding: 10px 0 0 0;
+  line-height: 30px;
+  position: relative;
+  bottom: 70px;
+  left: 60px;
+}
+
+.search,
+.current-location,
+.degree-celsius,
+.degree-fahrenheit {
+  background: #739d92;
+  border: #739d92;
+  transition: all 20ms ease-in-out;
+}
+.search:hover,
+.current-location:hover,
+.degree-celsius:hover,
+.degree-fahrenheit:hover {
+  background: #7bb8a7;
+  border: #7bb8a7;
+}
+.extra-info {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  color: #739d92;
+  text-align: center;
+  font-family: "Montserrat Subrayada", sans-serif;
+  font-size: 60px;
+  padding: 0;
+  margin: 0;
+}
+#search-city-image {
+  padding: 2px;
+  border: 2px solid #739d92;
+  border-radius: 20px;
+  max-width: 160px;
+  margin-bottom: 15px;
+}
+#temp {
+  text-align: center;
+  font-size: 60px;
+  line-height: 60px;
+}
+ul {
+  text-align: center;
+  list-style: none;
+  font-family: "Source Sans Pro", sans-serif;
+}
+li {
+  font-size: 24px;
+}
+#date {
+  padding-bottom: 15px;
+  font-weight: bold;
+  font-family: "Montserrat Subrayada", sans-serif;
+}
+.details {
+  color: #7bb8a7;
+  font-family: "Montserrat Subrayada", sans-serif;
+}
+.searched-cityicon {
+  padding-top: 15px;
+}
+
+.picture-indicator {
+  display: flex;
+  margin: 0 auto;
+  max-width: 150px;
+  padding: 0;
+  border: 2px solid beige;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+.card-img-top {
+  padding-top: 15px;
+}
+.card {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 20px;
+  background: #ffffff;
+  border: 5px solid #f6f3ec;
+  border-radius: 20px;
+}
+.card-body {
+  padding: 0;
+}
+.card-text {
+  font-size: 20px;
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 15px 0;
+}
