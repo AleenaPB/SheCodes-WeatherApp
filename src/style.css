@@ -118,3 +118,7 @@ li {
   font-family: "Source Sans Pro", sans-serif;
   padding: 15px 0;
 }
+.byline {
+  text-align: center;
+  font-size: 10px;
+}
