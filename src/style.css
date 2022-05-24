@@ -122,3 +122,10 @@ li {
   text-align: center;
   font-size: 10px;
 }
+.icon {
+  text-align: center;
+  font-size: 6px;
+  text-decoration: none;
+  color: #739d92;
+  margin: 0;
+}
