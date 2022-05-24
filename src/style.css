@@ -87,6 +87,9 @@ li {
 .searched-cityicon {
   padding-top: 15px;
 }
+.weather-descriptor {
+  text-transform: capitalize;
+}
 
 .picture-indicator {
   display: flex;

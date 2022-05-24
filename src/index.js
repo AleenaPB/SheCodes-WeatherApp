@@ -50,7 +50,7 @@ function showWeather(position) {
   let temperature = document.querySelector("#temp");
   temperature.innerHTML = `${Math.round(position.data.main.temp)}º`;
   document.querySelector("#weather-descriptor").innerHTML =
-    position.data.weather[0].main;
+    position.data.weather[0].description;
   document.querySelector("#high").innerHTML = Math.round(
     position.data.main.temp_max
   );
