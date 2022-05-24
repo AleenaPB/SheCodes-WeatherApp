@@ -87,7 +87,7 @@ li {
 .searched-cityicon {
   padding-top: 15px;
 }
-.weather-descriptor {
+#weather-descriptor {
   text-transform: capitalize;
 }
 
