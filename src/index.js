@@ -61,7 +61,9 @@ function showWeather(position) {
     position.data.main.feels_like
   );
   document.querySelector("#humidity").innerHTML = position.data.main.humidity;
-} //f(x) in charge of changing data content on the screen
+}
+
+//f(x) in charge of changing data content on the screen
 
 function searchCurrentCity(event) {
   event.preventDefault();
@@ -111,5 +113,7 @@ fahrenheitLink.addEventListener("click", fahrenheitConversion);
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", celsiusConversion);
+
+let iconElement = document.querySelector("#search-city-image");
 
 submittedCity("Gold Coast"); //default city page
