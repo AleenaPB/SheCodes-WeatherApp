@@ -76,9 +76,14 @@ li {
   font-size: 24px;
 }
 #date {
-  padding-bottom: 15px;
+  padding-bottom: 0;
   font-weight: bold;
   font-family: "Montserrat Subrayada", sans-serif;
+}
+small {
+  margin-top: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  padding-bottom: 15px;
 }
 .details {
   color: #7bb8a7;
