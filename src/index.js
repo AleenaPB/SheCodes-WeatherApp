@@ -57,10 +57,16 @@ function showWeather(position) {
   document.querySelector("#low").innerHTML = Math.round(
     position.data.main.temp_min
   );
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    position.data.main.feels_like
+  document.querySelector("#wind-speed").innerHTML = Math.round(
+    position.data.wind.speed
   );
   document.querySelector("#humidity").innerHTML = position.data.main.humidity;
+  let iconElement = document.querySelector("#search-city-image");
+  iconElement.setAttribute(
+    "src",
+    `images/${position.data.weather[0].icon}.gif`
+  );
+  celsiusTemperature = position.data.main.temp;
 }
 
 //f(x) in charge of changing data content on the screen
@@ -83,13 +89,14 @@ function showPosition(position) {
 function fahrenheitConversion(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temp");
-  temperatureElement.innerHTML = `82º`;
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemp)}º`;
 }
 
 function celsiusConversion(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temp");
-  temperatureElement.innerHTML = `28º`;
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}º`;
 }
 
 let search = document.querySelector("#search-form");
@@ -105,15 +112,15 @@ current.innerHTML = formatDate(now);
 let description = document.querySelector("#weather-descriptor");
 let high = document.querySelector("#high");
 let low = document.querySelector("#low");
-let feels = document.querySelector("#feels-like");
+let wind = document.querySelector("#wind-speed");
 let humidity = document.querySelector("#humidity");
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", fahrenheitConversion);
 
+let celsiusTemperature = null;
+
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", celsiusConversion);
-
-let iconElement = document.querySelector("#search-city-image");
 
 submittedCity("Gold Coast"); //default city page
