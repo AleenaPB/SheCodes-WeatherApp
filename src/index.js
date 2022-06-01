@@ -99,6 +99,31 @@ function celsiusConversion(event) {
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}º`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2 card">
+            <img src="images/02d.gif" class="card-img-top" alt="weather" />
+            <div class="card-body weather-forecast-date">
+              <p class="card-text">
+                ${day} <br />
+                <span class="weather-forecast-max">14º</span>
+                /
+                <span class="weather-forecast-min">24º</span>
+              </p>
+            </div>
+          </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
+
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", searchCity);
 
