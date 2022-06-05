@@ -43,6 +43,21 @@ function submittedCity(city) {
   axios.get(apiUrl).then(showWeather);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "d7f1ea8072ee710d2d1c16127e8ba9f3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+  console.log(apiUrl);
+}
+
 function showWeather(position) {
   console.log(position);
   let h1 = document.querySelector("h1");
@@ -67,9 +82,12 @@ function showWeather(position) {
     `images/${position.data.weather[0].icon}.gif`
   );
   celsiusTemperature = position.data.main.temp;
+
+  getForecast(position.data.coord);
 }
 
 //f(x) in charge of changing data content on the screen
+//make new f(x) for forecast
 
 function searchCurrentCity(event) {
   event.preventDefault();
@@ -99,30 +117,39 @@ function celsiusConversion(event) {
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}º`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  //new api integration
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2 card">
-            <img src="images/02d.gif" class="card-img-top" alt="weather" />
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2 card">
+            <img src="images/${
+              forecastDay.weather[0].icon
+            }.gif" class="card-img-top" alt="weather" />
             <div class="card-body weather-forecast-date">
               <p class="card-text">
-                ${day} <br />
-                <span class="weather-forecast-max">14º</span>
+                ${formatDay(forecastDay.dt)} <br />
+                <span class="weather-forecast-max">${Math.round(
+                  forecastDay.temp.max
+                )}º</span>
                 /
-                <span class="weather-forecast-min">24º</span>
+                <span class="weather-forecast-min">${Math.round(
+                  forecastDay.temp.min
+                )}º</span>
               </p>
             </div>
           </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
 
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", searchCity);
