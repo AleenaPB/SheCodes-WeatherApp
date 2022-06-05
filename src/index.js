@@ -51,19 +51,16 @@ function formatDay(timestamp) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "d7f1ea8072ee710d2d1c16127e8ba9f3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
-  console.log(apiUrl);
 }
 
 function showWeather(position) {
-  console.log(position);
   let h1 = document.querySelector("h1");
   h1.innerHTML = position.data.name;
   let temperature = document.querySelector("#temp");
-  temperature.innerHTML = `${Math.round(position.data.main.temp)}º`;
+  temperature.innerHTML = `${Math.round(position.data.main.temp)}ºC`;
   document.querySelector("#weather-descriptor").innerHTML =
     position.data.weather[0].description;
   document.querySelector("#high").innerHTML = Math.round(
@@ -95,26 +92,12 @@ function searchCurrentCity(event) {
 }
 
 function showPosition(position) {
-  console.log(position);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "d7f1ea8072ee710d2d1c16127e8ba9f3";
   let unit = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(showWeather);
-}
-
-function fahrenheitConversion(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temp");
-  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = `${Math.round(fahrenheitTemp)}º`;
-}
-
-function celsiusConversion(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temp");
-  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}º`;
 }
 
 function displayForecast(response) {
@@ -166,13 +149,5 @@ let high = document.querySelector("#high");
 let low = document.querySelector("#low");
 let wind = document.querySelector("#wind-speed");
 let humidity = document.querySelector("#humidity");
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", fahrenheitConversion);
-
-let celsiusTemperature = null;
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", celsiusConversion);
 
 submittedCity("Gold Coast"); //default city page
