@@ -56,6 +56,7 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+//f(x) in charge of changing data content on the screen
 function showWeather(position) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = position.data.name;
@@ -83,9 +84,6 @@ function showWeather(position) {
   getForecast(position.data.coord);
 }
 
-//f(x) in charge of changing data content on the screen
-//make new f(x) for forecast
-
 function searchCurrentCity(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
@@ -101,7 +99,6 @@ function showPosition(position) {
 }
 
 function displayForecast(response) {
-  //new api integration
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
